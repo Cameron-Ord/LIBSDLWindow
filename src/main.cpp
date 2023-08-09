@@ -18,9 +18,11 @@ int main(int argc, char* args[])
         return 1;
     }
 
+
+
     {
         RenderWindow window("GAME v1.0", 1280, 720);
-
+        SDL_Texture* grassTexture = window.loadTexture("/home/cameron/Documents/SDL2/res/gfx/ground_grass_1.png");
         bool gameRunning = true;
         SDL_Event event;
 
@@ -33,6 +35,9 @@ int main(int argc, char* args[])
                     gameRunning = false;
                 }
             }
+            window.clear();
+            window.render(grassTexture);
+            window.display();
         }
     } // The window object goes out of scope here and will be properly destroyed
 
